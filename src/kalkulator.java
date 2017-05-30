@@ -5,15 +5,15 @@ import javax.swing.*;
 import java.util.*;
 
 public class Kalkulator extends JFrame {
-    Boolean cekTambah = false ;
-    Boolean cekKurang = false ;
-    Boolean cekBagi = false ;
-    Boolean cekKali = false ;
-    Boolean cekPangkat = false;
+    Boolean cTambah = false ;
+    Boolean cKurang = false ;
+    Boolean cBagi = false ;
+    Boolean cKali = false ;
+    Boolean cPangkat = false;
     String display = "";
-    private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
-    private JButton btnTambah, btnKurang, btnKali, btnBagi, btnPangkat;
-    private JButton btnHasil, btnHapus;
+    private JButton tmbl1, tmbl2, tmbl3, tmbl4, tmbl5, tmbl6, tmbl7, tmbl8, tmbl9, tmbl0;
+    private JButton tmblTambah, tmblKurang, tmblKali, tmblBagi, tmblPangkat;
+    private JButton tmblHasil, tmblHapus;
     private double hasil, hasilTemp;
     private JTextField fieldHasil;
 
@@ -22,46 +22,46 @@ public class Kalkulator extends JFrame {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(4, 3));
 
-        p1.add(btn1 = new JButton("1"));
-        btn1.addActionListener(new ListenToOne());
-        p1.add(btn1, BorderLayout.PAGE_START);
-        p1.add(btn2 = new JButton("2"));
-        btn2.addActionListener(new ListenToTwo());
-        p1.add(btn3 = new JButton("3"));
-        btn3.addActionListener(new ListenToThree());
-        p1.add(btn4 = new JButton("4"));
-        btn4.addActionListener(new ListenToFour());
-        p1.add(btn5 = new JButton("5"));
-        btn5.addActionListener(new ListenToFive());
-        p1.add(btn6 = new JButton("6"));
-        btn6.addActionListener(new ListenToSix());
-        p1.add(btn7 = new JButton("7"));
-        btn7.addActionListener(new ListenToSeven());
-        p1.add(btn8 = new JButton("8"));
-        btn8.addActionListener(new ListenToEight());
-        p1.add(btn9 = new JButton("9"));
-        btn9.addActionListener(new ListenToNine());
-        p1.add(btn0 = new JButton("0"));
-        btn0.addActionListener(new ListenToZero());
-        p1.add(btnHapus = new JButton("C"));
-        btnHapus.addActionListener(new ListenToClear());
-        p1.add(btnHasil = new JButton("="));
-        btnHasil.addActionListener(new ListenToSolve());
+        p1.add(tmbl1 = new JButton("1"));
+        tmbl1.addActionListener(new ListenToOne());
+        p1.add(tmbl1, BorderLayout.PAGE_START);
+        p1.add(tmbl2 = new JButton("2"));
+        tmbl2.addActionListener(new ListenToTwo());
+        p1.add(tmbl3 = new JButton("3"));
+        tmbl3.addActionListener(new ListenToThree());
+        p1.add(tmbl4 = new JButton("4"));
+        tmbl4.addActionListener(new ListenToFour());
+        p1.add(tmbl5 = new JButton("5"));
+        tmbl5.addActionListener(new ListenToFive());
+        p1.add(tmbl6 = new JButton("6"));
+        tmbl6.addActionListener(new ListenToSix());
+        p1.add(tmbl7 = new JButton("7"));
+        tmbl7.addActionListener(new ListenToSeven());
+        p1.add(tmbl8 = new JButton("8"));
+        tmbl8.addActionListener(new ListenToEight());
+        p1.add(tmbl9 = new JButton("9"));
+        tmbl9.addActionListener(new ListenToNine());
+        p1.add(tmbl0 = new JButton("0"));
+        tmbl0.addActionListener(new ListenToZero());
+        p1.add(tmblHapus = new JButton("C"));
+        tmblHapus.addActionListener(new ListenToClear());
+        p1.add(tmblHasil = new JButton("="));
+        tmblHasil.addActionListener(new ListenToSolve());
 
         JPanel p2 = new JPanel();
         p2.setLayout(new GridLayout(6, 1));
         p2.add(fieldHasil = new JTextField());
         fieldHasil.setEditable(false);
-        p2.add(btnTambah = new JButton("+"));
-        btnTambah.addActionListener(new ListenToAdd());
-        p2.add(btnKurang = new JButton("-"));
-        btnKurang.addActionListener(new ListenToSubtract());
-        p2.add(btnKali = new JButton("*"));
-        btnKali.addActionListener(new ListenToMultiply());
-        p2.add(btnBagi = new JButton("/"));
-        btnBagi.addActionListener(new ListenToDivide());
-        p2.add(btnPangkat = new JButton("x^n"));
-        btnPangkat.addActionListener(new ListenToPow());
+        p2.add(tmblTambah = new JButton("+"));
+        tmblTambah.addActionListener(new ListenToAdd());
+        p2.add(tmblKurang = new JButton("-"));
+        tmblKurang.addActionListener(new ListenToSubtract());
+        p2.add(tmblKali = new JButton("*"));
+        tmblKali.addActionListener(new ListenToMultiply());
+        p2.add(tmblBagi = new JButton("/"));
+        tmblBagi.addActionListener(new ListenToDivide());
+        p2.add(tmblPangkat = new JButton("x^n"));
+        tmblPangkat.addActionListener(new ListenToPow());
 
         JPanel p = new JPanel();
         p.setLayout(new GridLayout());
@@ -81,7 +81,7 @@ public class Kalkulator extends JFrame {
     class ListenToClear implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             fieldHasil.setText("");
-            cekTambah = cekKurang = cekKali = cekBagi  = false ;
+            cTambah = cKurang = cKali = cBagi  = false ;
             hasil = 0;
             hasilTemp = 0 ;
         }
@@ -161,7 +161,7 @@ public class Kalkulator extends JFrame {
         public void actionPerformed(ActionEvent e) {
             hasil = Double.parseDouble(fieldHasil.getText());
             fieldHasil.setText("");
-            cekTambah = true ;
+            cTambah = true ;
 
         }
     }
@@ -170,7 +170,7 @@ public class Kalkulator extends JFrame {
         public void actionPerformed(ActionEvent e) {
             hasil = Double.parseDouble(fieldHasil.getText());
             fieldHasil.setText("");
-            cekKurang =true;
+            cKurang =true;
         }
     }
 
@@ -178,7 +178,7 @@ public class Kalkulator extends JFrame {
         public void actionPerformed(ActionEvent e) {
             hasil = Double.parseDouble(fieldHasil.getText());
             fieldHasil.setText("");
-            cekKali =true;
+            cKali =true;
 
         }
     }
@@ -187,7 +187,7 @@ public class Kalkulator extends JFrame {
         public void actionPerformed(ActionEvent e) {
             hasil = Double.parseDouble(fieldHasil.getText());
             fieldHasil.setText("");
-            cekBagi =true;
+            cBagi =true;
         }
     }
 
@@ -195,26 +195,26 @@ public class Kalkulator extends JFrame {
         public void actionPerformed(ActionEvent e) {
             hasil = Double.parseDouble(fieldHasil.getText());
             fieldHasil.setText("");
-            cekPangkat =true;
+            cPangkat =true;
         }
     }
 
     class ListenToSolve implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             hasilTemp = Double.parseDouble(  fieldHasil.getText() );
-            if ( cekTambah == true  )
+            if ( cTambah == true  )
                 hasilTemp = hasil + hasilTemp;
-            else if ( cekKurang == true  )
+            else if ( cKurang == true  )
                 hasilTemp = hasil - hasilTemp;
-            else if ( cekBagi == true  )
+            else if ( cBagi == true  )
                 hasilTemp = hasil / hasilTemp;
-            else if ( cekKali == true  )
+            else if ( cKali == true  )
                 hasilTemp = hasil * hasilTemp;
-            else if ( cekPangkat == true  )
+            else if ( cPangkat == true  )
                 hasilTemp = Math.pow(hasil, hasilTemp);
             fieldHasil.setText( Double.toString( hasilTemp ) );
 
-            cekTambah = cekKurang = cekKali = cekBagi = cekPangkat = false ;
+            cTambah = cKurang = cKali = cBagi = cPangkat = false ;
         }
     }
 
